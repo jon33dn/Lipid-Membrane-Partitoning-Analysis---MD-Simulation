@@ -169,6 +169,7 @@ def len_integra_main(dataset, time_range, system_type, cosolvent, lipid_perleafl
     15. Kp (partition coefficient)
     16. Ps (co-sovlent localization)
     17. Nw (number of water molecules in the headgroup region)
+    18. APL (area per lipid)
     """
 
     # find the parallel run number
@@ -200,6 +201,7 @@ def len_integra_main(dataset, time_range, system_type, cosolvent, lipid_perleafl
         "Nw",
     ]
     filelist = list(dataset.keys())
+    run_num = [k for k in dataset.keys() if k.endswith("_xy")]
     for _, file in enumerate(filelist):
         # set up z position for each group in negative and postive sides
         # get the parallel run number
@@ -280,7 +282,7 @@ def len_integra_main(dataset, time_range, system_type, cosolvent, lipid_perleafl
     # integration for cosolvent
     cosolvent_data = {}
     if system_type == "y":
-        for i in range(0, len(output_df.columns)):
+        for i in range(0, len(run_num)):
             for _, elem in enumerate(["pos", "neg"]):
                 cosolvent_data[f"r{i}_Cosolvent_Bulk_integra_{elem}"] = []
                 cosolvent_data[f"r{i}_Cosolvent_Bulk_len_{elem}"] = []
@@ -453,7 +455,7 @@ def len_integra_main(dataset, time_range, system_type, cosolvent, lipid_perleafl
                 head_water_integration_pos_result
             )
     elif system_type == "n":
-        for i in range(0, len(output_df.columns)):
+        for i in range(0, len(run_num)):
             for _, elem in enumerate(["pos", "neg"]):
                 cosolvent_data[f"r{i}_Cosolvent_Bulk_integra_{elem}"] = []
                 cosolvent_data[f"r{i}_Cosolvent_Bulk_len_{elem}"] = []
@@ -518,7 +520,7 @@ def len_integra_main(dataset, time_range, system_type, cosolvent, lipid_perleafl
         print("unknown system_type")
 
     # calculate the final parameter
-    for i in range(0, len(output_df.columns)):
+    for i in range(0, len(run_num)):
         r_n = f"r{i}"
         output_df.loc["90%Water", r_n] = (
             np.abs(z_result[f"{r_n}_water_z_neg"][0])
@@ -576,4 +578,5 @@ def len_integra_main(dataset, time_range, system_type, cosolvent, lipid_perleafl
         * output_df.loc["Average Box Area"]
         / lipid_perleaflet
     )
+    output_df.loc["APL"] = output_df.loc["Average Box Area"] / lipid_perleaflet
     return output_df
