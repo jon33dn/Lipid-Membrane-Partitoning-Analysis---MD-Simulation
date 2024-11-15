@@ -8,4 +8,10 @@ Please cite the following work. Thank you.
 https://pubs.acs.org/doi/10.1021/acssuschemeng.2c06876
 
 The goal of this script is used to analyze the membrane simulation w/o co-sovlent.
-To set up the python environment
+
+Run this command to install the python package.
+
+```shell
+
+
+```
