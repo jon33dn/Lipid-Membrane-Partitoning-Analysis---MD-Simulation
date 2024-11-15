@@ -1,3 +1,4 @@
+source /opt/homebrew/Caskroom/miniforge/base/bin/activate
 # activate env by source activate
 #
 # source /opt/homebrew/Caskroom/miniforge/base/bin/activate
