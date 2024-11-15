@@ -13,5 +13,5 @@ Run this command to install the python package.
 
 ```shell
 
-
+bash package_install.sh
 ```
