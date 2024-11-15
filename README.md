@@ -23,5 +23,5 @@ bash density_run_script.sh
 ```
 
 This script is required to input the following information.
-_ Density profile path
-_
+
+    * Density profile path
