@@ -29,8 +29,6 @@ This script is required to input the following information.
 * system information (if co-solvent present) (y/n)
 
 * co-solvent formula (if the system without co-sovlent, just type H2O)
-  - <detail>
-        <summary: Example>
-            - Butanol C4H9OH
-            - Ethanol C2H5OH
-    </detail>
+  <details>
+  <summary: Example> - Butanol C4H9OH - Ethanol C2H5OH
+  </details>
