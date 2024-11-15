@@ -25,3 +25,5 @@ bash density_run_script.sh
 This script is required to input the following information.
 
 - Density profile path
+
+* system information (if co-solvent present) (y/n)
