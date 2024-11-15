@@ -31,7 +31,6 @@ This script is required to input the following information.
 * co-solvent formula (if the system without co-sovlent, just type H2O)
   <details>
   <summary>Example</summary>
-
-- Butanol: C4H9OH
-- Ethanol: C2H5OH
+      - Butanol: C4H9OH
+      - Ethanol: C2H5OH
   </details>
