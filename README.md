@@ -33,4 +33,4 @@ This script is required to input the following information.
         <summary: Example>
             - Butanol C4H9OH
             - Ethanol C2H5OH
-    <\detail>
+    </detail>
