@@ -37,3 +37,11 @@ This script is required to input the following information.
       Butanol: C4H9OH <br>
       Ethanol: C2H5OH <br>
   </details>
+
+- co-solvent atom numbers (if the system without co-solvent, just type 0)
+
+- time range for analysis (used in the xy.xvg)
+
+- Output csv path
+
+- Lipids per leaflet
