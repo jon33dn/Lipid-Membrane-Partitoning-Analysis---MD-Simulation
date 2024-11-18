@@ -45,3 +45,25 @@ This script is required to input the following information.
 - Output csv path
 
 - Lipids per leaflet
+
+Input density profile format
+
+```bash
+EtOH
+├── 6p0EtOH
+│   ├── {system}_6p0EtOH_r1_C21C31_along_z.xvg
+│   ├── {system}_6p0EtOH_r1_C2H5OH_along_z.xvg
+│   ├── {system}_6p0EtOH_r1_P_along_z.xvg
+│   ├── {system}_6p0EtOH_r1_water_along_z.xvg
+│   ├── {system}_6p0EtOH_r1_xy.xvg
+│   ├── {system}_6p0EtOH_r2_C21C31_along_z.xvg
+│   ├── {system}_6p0EtOH_r2_C2H5OH_along_z.xvg
+│   ├── {system}_6p0EtOH_r2_P_along_z.xvg
+│   ├── {system}_6p0EtOH_r2_water_along_z.xvg
+│   ├── {system}_6p0EtOH_r0_C21C31_along_z.xvg
+│   ├── {system}_6p0EtOH_r0_C2H5OH_along_z.xvg
+│   ├── {system}_6p0EtOH_r0_P_along_z.xvg
+│   ├── {system}_6p0EtOH_r0_water_along_z.xvg
+│   ├── {system}_6p0EtOH_r0_xy.xvg
+│   └── {system}_6p0EtOH_r2_xy.xvg
+```
