@@ -29,7 +29,9 @@ This script is required to input the following information.
 * system information (if co-solvent present) (y/n)
 
 * co-solvent formula (if the system without co-sovlent, just type H2O)
+
 ==To be noticed, this formula will be used in the script to look for the co-solvent density file==
+
   <details>
   <summary>Example</summary>
       Butanol: C4H9OH <br>
