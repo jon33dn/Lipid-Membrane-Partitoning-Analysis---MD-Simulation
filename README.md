@@ -28,6 +28,8 @@ After finishing install all the required packages, you are good to run the analy
 bash density_run_script.sh
 ```
 
+## Required Input
+
 This script is required to input the following information.
 
 - Density profile path
