@@ -9,10 +9,16 @@ Please cite the following work. Thank you.
 
 The goal of this script is used to analyze the membrane simulation w/o co-sovlent.
 
+## Set up
+
+This script use miniconda or anaecoda as package manager.
+Please check out the installation page for [miniconda](https://docs.anaconda.com/miniconda/miniconda-install/)
+or [anaconda](https://docs.anaconda.com/anaconda/install/)
+
 Run this command to install the python packages.
 
 ```shell
-
+conda config --append channels conda-forge
 bash package_install.sh
 ```
 
