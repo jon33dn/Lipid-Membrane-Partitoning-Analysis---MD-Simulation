@@ -26,11 +26,11 @@ This script is required to input the following information.
 
 - Density profile path
 
-* system information (if co-solvent present) (y/n)
+- system information (if co-solvent present) (y/n)
 
-* co-solvent formula (if the system without co-sovlent, just type H2O)
+- co-solvent formula (if the system without co-sovlent, just type H2O)
 
-==To be noticed, this formula will be used in the script to look for the co-solvent density file==
+  - To be noticed, this formula will be used in the script to look for the co-solvent density file
 
   <details>
   <summary>Example</summary>
