@@ -59,7 +59,9 @@ This script is required to input the following information.
 The input path only need to reach the EtOH folder, not the concentraion folder.
 All the .xvg files are the output of **gmx density** (membrane centered by C21C31)
 and **gmx energy**
+
 Input density profile format with co-solvent EtOH example.
+
 After running density_run_script.sh, it will go through every concentration in the EtOH folder
 and output a .csv file for each concentration in the Output path.
 
@@ -81,4 +83,24 @@ EtOH
 │   ├── ${system}_6p0EtOH_r0_water_along_z.xvg
 │   ├── ${system}_6p0EtOH_r0_xy.xvg
 │   └── ${system}_6p0EtOH_r2_xy.xvg
+```
+
+Input density profile format without co-solvent.
+
+The folder need to be Wateronly
+
+```bash
+Wateronly
+├── ${system}_Wateronly_r0_C21C31_along_z.xvg
+├── ${system}_Wateronly_r0_P_along_z.xvg
+├── ${system}_Wateronly_r0_water_along_z.xvg
+├── ${system}_Wateronly_r0_xy.xvg
+├── ${system}_Wateronly_r1_C21C31_along_z.xvg
+├── ${system}_Wateronly_r1_P_along_z.xvg
+├── ${system}_Wateronly_r1_water_along_z.xvg
+├── ${system}_Wateronly_r1_xy.xvg
+├── ${system}_Wateronly_r2_C21C31_along_z.xvg
+├── ${system}_Wateronly_r2_P_along_z.xvg
+├── ${system}_Wateronly_r2_water_along_z.xvg
+└── ${system}_Wateronly_r2_xy.xvg
 ```
