@@ -50,7 +50,7 @@ This script is required to input the following information.
 
 - time range for analysis (used in the xy.xvg)
 
-- Output csv path **Please keep the output path different from density profile path**
+- Output csv path (**Please keep the output path different from density profile path**)
 
 - Lipids per leaflet
 
