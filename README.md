@@ -65,6 +65,8 @@ Input density profile format with co-solvent EtOH example.
 After running density_run_script.sh, it will go through every concentration in the EtOH folder
 and output a .csv file for each concentration in the Output path.
 
+_Please use 0 as the beginning index for each parallel run_
+
 ```bash
 EtOH
 ├── 6p0EtOH
