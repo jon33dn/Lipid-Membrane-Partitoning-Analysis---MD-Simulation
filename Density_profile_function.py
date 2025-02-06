@@ -176,8 +176,9 @@ def len_integra_main(dataset, time_range, system_type, cosolvent, lipid_perleafl
     boxarea_result = []
     z_result = {}
     temp_dict = {}
-    fill_data = np.zeros((17, 3))
-
+    filelist = list(dataset.keys())
+    run_num = [k for k in dataset.keys() if k.endswith("_xy")]
+    fill_data = np.zeros((17, len(run_num)))
     # set up return data frame
     output_df = pd.DataFrame(data=fill_data)
     output_df = output_df.rename(columns=lambda x: "r" + str(x))
@@ -200,8 +201,8 @@ def len_integra_main(dataset, time_range, system_type, cosolvent, lipid_perleafl
         "Ps",
         "Nw",
     ]
-    filelist = list(dataset.keys())
-    run_num = [k for k in dataset.keys() if k.endswith("_xy")]
+    # filelist = list(dataset.keys())
+    # run_num = [k for k in dataset.keys() if k.endswith("_xy")]
     for _, file in enumerate(filelist):
         # set up z position for each group in negative and postive sides
         # get the parallel run number
