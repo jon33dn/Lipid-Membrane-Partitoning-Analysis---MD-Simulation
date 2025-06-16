@@ -11,9 +11,9 @@ The goal of this script is used to analyze the membrane simulation w/o co-sovlen
 
 ## Set up
 
-This script use miniconda or anaecoda as package manager.
-Please check out the installation page for [miniconda](https://docs.anaconda.com/miniconda/miniconda-install/)
-or [anaconda](https://docs.anaconda.com/anaconda/install/)
+This script use miniforge or mamba as package manager.
+Please check out the installation page for [miniforge](https://github.com/conda-forge/miniforge)
+or [mamba](https://github.com/mamba-org/mamba)
 
 Run this command to install the python packages.
 
