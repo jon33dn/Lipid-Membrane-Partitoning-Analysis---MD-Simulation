@@ -515,7 +515,7 @@ def len_integra_main(dataset, time_range, system_type, cosolvent, lipid_perleafl
             cosolvent_data[f"r{i}_water_head_integra_pos"].append(
                 head_water_integration_pos_result
             )
-            cosolvent_data[f"r{i}_Cosovlent_head_len_pos"].append(head_water_len_pos)
+            cosolvent_data[f"r{i}_Cosolvent_Head_len_pos"].append(head_water_len_pos)
 
     else:
         print("unknown system_type")
@@ -535,18 +535,29 @@ def len_integra_main(dataset, time_range, system_type, cosolvent, lipid_perleafl
             np.abs(z_result[f"{r_n}_P_z_neg"][0])
             + np.abs(z_result[f"{r_n}_P_z_pos"][0])
         ) / 2
-        output_df.loc["Cosolvent_Tail", r_n] = (
-            cosolvent_data[f"{r_n}_Cosolvent_Tail_integra_neg"][0]
-            + cosolvent_data[f"{r_n}_Cosolvent_Tail_integra_pos"][0]
-        ) / 2
-        output_df.loc["Cosolvent_Head", r_n] = (
-            cosolvent_data[f"{r_n}_Cosolvent_Head_integra_neg"][0]
-            + cosolvent_data[f"{r_n}_Cosolvent_Head_integra_pos"][0]
-        ) / 2
-        output_df.loc["Cosolvent_Bulk", r_n] = (
-            cosolvent_data[f"{r_n}_Cosolvent_Bulk_integra_neg"][0]
-            + cosolvent_data[f"{r_n}_Cosolvent_Bulk_integra_pos"][0]
-        ) / 2
+        if system_type == "y":
+            output_df.loc["Cosolvent_Tail", r_n] = (
+                cosolvent_data[f"{r_n}_Cosolvent_Tail_integra_neg"][0]
+                + cosolvent_data[f"{r_n}_Cosolvent_Tail_integra_pos"][0]
+            ) / 2
+            output_df.loc["Cosolvent_Head", r_n] = (
+                cosolvent_data[f"{r_n}_Cosolvent_Head_integra_neg"][0]
+                + cosolvent_data[f"{r_n}_Cosolvent_Head_integra_pos"][0]
+            ) / 2
+            output_df.loc["Cosolvent_Bulk", r_n] = (
+                cosolvent_data[f"{r_n}_Cosolvent_Bulk_integra_neg"][0]
+                + cosolvent_data[f"{r_n}_Cosolvent_Bulk_integra_pos"][0]
+            ) / 2
+            output_df.loc["Bulk_Length", r_n] = (
+                cosolvent_data[f"{r_n}_Cosolvent_Bulk_len_neg"][0]
+                + cosolvent_data[f"{r_n}_Cosolvent_Bulk_len_pos"][0]
+            ) / 2
+
+        else:
+            output_df.loc["Cosolvent_Tail", r_n] = 0
+            output_df.loc["Cosolvent_Head", r_n] = 0
+            output_df.loc["Cosolvent_Bulk", r_n] = 0
+            output_df.loc["Bulk_Length", r_n] = 0
         # output_df.loc["Cosolvent_Tail_len", r_n] = (
         #     cosolvent_data[f"{r_n}_Cosolvent_Tail_len_neg"][0]
         #     + cosolvent_data[f"{r_n}_Cosolvent_Tail_len_pos"][0]
@@ -555,10 +566,10 @@ def len_integra_main(dataset, time_range, system_type, cosolvent, lipid_perleafl
         #     cosolvent_data[f"{r_n}_Cosolvent_Head_len_neg"][0]
         #     + cosolvent_data[f"{r_n}_Cosolvent_Head_len_pos"][0]
         # ) / 2
-        output_df.loc["Bulk_Length", r_n] = (
-            cosolvent_data[f"{r_n}_Cosolvent_Bulk_len_neg"][0]
-            + cosolvent_data[f"{r_n}_Cosolvent_Bulk_len_pos"][0]
-        ) / 2
+        # output_df.loc["Bulk_Length", r_n] = (
+        #     cosolvent_data[f"{r_n}_Cosolvent_Bulk_len_neg"][0]
+        #     + cosolvent_data[f"{r_n}_Cosolvent_Bulk_len_pos"][0]
+        # ) / 2
         output_df.loc["Water in Lipid Head", r_n] = (
             cosolvent_data[f"{r_n}_water_head_integra_neg"][0]
             + cosolvent_data[f"{r_n}_water_head_integra_pos"][0]
@@ -567,13 +578,17 @@ def len_integra_main(dataset, time_range, system_type, cosolvent, lipid_perleafl
     output_df.loc["Dh"] = output_df.loc["90%Water"] - output_df.loc["C21C31"]
     output_df.loc["DB"] = 2 * output_df.loc["Dc"] + output_df.loc["Dh"]
     output_df.loc["Dpp"] = 2 * output_df.loc["P"]
-    output_df.loc["Kp"] = (
-        (output_df.loc["Cosolvent_Tail"] + output_df.loc["Cosolvent_Head"])
-        / (output_df.loc["Dc"] + output_df.loc["Dh"])
-    ) / (output_df.loc["Cosolvent_Bulk"] / output_df.loc["Bulk_Length"])
-    output_df.loc["Ps"] = output_df.loc["Cosolvent_Tail"] / (
-        output_df.loc["Cosolvent_Head"] + output_df.loc["Cosolvent_Tail"]
-    )
+    if system_type == "y":
+        output_df.loc["Kp"] = (
+            (output_df.loc["Cosolvent_Tail"] + output_df.loc["Cosolvent_Head"])
+            / (output_df.loc["Dc"] + output_df.loc["Dh"])
+        ) / (output_df.loc["Cosolvent_Bulk"] / output_df.loc["Bulk_Length"])
+        output_df.loc["Ps"] = output_df.loc["Cosolvent_Tail"] / (
+            output_df.loc["Cosolvent_Head"] + output_df.loc["Cosolvent_Tail"]
+        )
+    else:
+        output_df.loc["Kp"] = np.nan
+        output_df.loc["Ps"] = np.nan
     output_df.loc["Nw"] = (
         output_df.loc["Water in Lipid Head"]
         * output_df.loc["Average Box Area"]
