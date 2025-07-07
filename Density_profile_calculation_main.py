@@ -28,10 +28,10 @@ Time_range = float(input("Please input the time range analysis begin from: \n"))
 
 Save_path = input("Please input the saving directory: \n")
 
-Lipid_perleaflet = 402
+# Lipid_perleaflet = 402
 
 
-# Lipid_perleaflet = input("Please input the lipid amount per leaflet")
+Lipid_perleaflet = input("Please input the lipid amount per leaflet")
 File_name, File_dict = func.file_read(Work_path)
 
 
